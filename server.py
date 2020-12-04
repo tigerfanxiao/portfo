@@ -3,6 +3,7 @@ from flask import render_template
 from flask import request
 from flask import redirect
 from flask import url_for
+from flask import send_from_directory
 import csv
 
 app = Flask(__name__)
@@ -12,6 +13,10 @@ app = Flask(__name__)
 def my_home():
     return render_template('index.html')
 
+@app.route('/sitemap.xml')
+@app.route('/robots.txt')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
 
 @app.route('/<string:page_name>')
 def navigate_page(page_name):

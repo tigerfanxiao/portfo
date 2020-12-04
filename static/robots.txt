@@ -1,0 +1,5 @@
+# Group 1
+User-agent: *
+Allow: /
+
+Sitemap: http://xiaofan.pythonanywhere.com/sitemap.xml
